@@ -4,363 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IPMS | IT-Connect Platform</title>
+  <meta name="description" content="IT-Connect (IPMS) is Nigeria's two-sided IT/SIWES placement platform, connecting students to verified Industrial Training placements without the door-to-door search.">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* --- CSS VARIABLES --- */
-    :root {
-      --blue-dark: #0A194F;
-      --blue-main: #0F3381;
-      --green-main: #008751;
-      --green-light: #22C55E;
-      --bg-light: #F8FAFC;
-      --text-dark: #0F172A;
-      --text-muted: #475569;
-      --white: #FFFFFF;
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-      --gradient: linear-gradient(135deg, var(--blue-main), var(--green-main));
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* --- NAVBAR --- */
-    header {
-      background: var(--white);
-      box-shadow: var(--shadow-sm);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 15px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-container img {
-      height: 50px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--blue-dark);
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--text-muted);
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--green-main);
-    }
-
-    .btn-primary {
-      background: var(--gradient);
-      color: var(--white) !important;
-      padding: 10px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: opacity 0.3s, transform 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      font-size: 24px;
-      color: var(--blue-dark);
-      cursor: pointer;
-    }
-
-    /* --- HERO SECTION --- */
-    .hero {
-      margin-top: 80px;
-      padding: 80px 24px;
-      text-align: center;
-      background: var(--white);
-    }
-
-    .hero-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: #E0F2FE;
-      color: var(--blue-main);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--blue-dark);
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      max-width: 700px;
-      margin-inline: auto;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--blue-main);
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-weight: 700;
-      border: 2px solid var(--blue-main);
-      transition: all 0.3s;
-    }
-
-    .btn-secondary:hover {
-      background: var(--blue-light);
-      color: var(--blue-dark);
-    }
-
-    .hero-btn {
-      padding: 14px 32px;
-      font-size: 16px;
-    }
-
-    /* --- THE PROBLEM & SOLUTION --- */
-    .section {
-      padding: 80px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: var(--blue-dark);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 16px;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      max-width: 600px;
-      margin-inline: auto;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-
-    .card {
-      background: var(--white);
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: var(--shadow-lg);
-      transition: transform 0.3s;
-      border-top: 4px solid var(--blue-main);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card-icon {
-      height: 60px;
-      width: 60px;
-      background: #EFF6FF;
-      color: var(--blue-main);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      margin-bottom: 24px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
-    /* --- FEATURES (TWO-SIDED MARKETPLACE) --- */
-    .features-bg {
-      background: var(--blue-dark);
-      color: var(--white);
-    }
-
-    .features-bg .section-title, .features-bg .section-subtitle {
-      color: var(--white);
-    }
-
-    .features-bg .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-top: 4px solid var(--green-light);
-      box-shadow: none;
-      border-radius: 16px;
-    }
-
-    .features-bg .card h3 {
-      color: var(--white);
-    }
-
-    .features-bg .card p {
-      color: #94A3B8;
-    }
-
-    .features-bg .card-icon {
-      background: rgba(34, 197, 94, 0.2);
-      color: var(--green-light);
-    }
-
-    /* --- TRUST & SAFETY --- */
-    .trust-banner {
-      background: #ECFDF5;
-      border-left: 6px solid var(--green-main);
-      padding: 24px;
-      border-radius: 8px;
-      margin-top: 40px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    
-    .trust-banner i {
-      font-size: 24px;
-      color: var(--green-main);
-      margin-top: 4px;
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      background: var(--white);
-      border-top: 1px solid #E2E8F0;
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    footer img {
-      height: 40px;
-      margin-bottom: 16px;
-      filter: grayscale(100%);
-      opacity: 0.6;
-    }
-
-    footer p {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    /* --- RESPONSIVE DESIGN --- */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none; /* Mobile menu hidden by default */
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 24px;
-        box-shadow: var(--shadow-lg);
-        gap: 20px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -372,16 +19,20 @@
         <img src="image.jpg" alt="IPMS Logo">
         <span class="logo-text">IPMS</span>
       </div>
-      
-      <div class="mobile-menu-btn" onclick="toggleMenu()">
+
+      <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
         <i class="fa-solid fa-bars"></i>
-      </div>
+      </button>
 
       <nav class="nav-links" id="nav-links">
+        <a href="#problem">The Problem</a>
         <a href="#how-it-works">How it Works</a>
         <a href="#students">For Students</a>
-        <a href="#organizations">For Employers</a>
-        <a href="#" class="btn-primary">Sign In</a>
+        <a href="#organisations">For Organisations</a>
+        <a href="#trust">Trust &amp; Safety</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+        <a href="#get-app" class="btn-primary"><i class="fa-solid fa-mobile-screen-button"></i> Get the App</a>
       </nav>
     </div>
   </header>
@@ -389,94 +40,379 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-container">
-      <div class="hero-badge">Nigeria's Official SIWES Marketplace</div>
+      <div class="hero-badge">Nigeria's SIWES / IT Placement Platform</div>
       <h1>Bridging the gap between classroom and industry <span>one placement at a time.</span></h1>
-      <p>IPMS (IT-Connect) is a two-sided platform designed to close the long-standing gap between students who need Industrial Training (IT/SIWES) placements and the organisations willing to host them[cite: 1].</p>
-      
+      <p>IT-Connect (IPMS) is a two-sided platform that closes the long-standing gap between students who need Industrial Training (IT/SIWES) placements and the organisations willing to host them.</p>
+      <p class="hero-sub">No more door-to-door applications, printed letters, or transport fares spent chasing a placement that may never reply.</p>
+
       <div class="hero-cta">
-        <button class="btn-primary hero-btn">I am a Student</button>
-        <button class="btn-secondary hero-btn">I represent an Organisation</button>
+        <a href="#get-app" class="btn-primary hero-btn"><i class="fa-solid fa-mobile-screen-button"></i> Get the App</a>
+        <a href="#how-it-works" class="btn-secondary hero-btn">See how it works</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h4>Weeks → Days</h4>
+          <p>Typical placement search time, structured online</p>
+        </div>
+        <div class="hero-stat">
+          <h4>₦0 to search</h4>
+          <p>No transport fare or printing to apply</p>
+        </div>
+        <div class="hero-stat">
+          <h4>Verified only</h4>
+          <p>Every organisation is checked before posting</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- THE PROBLEM / WHY IPMS -->
-  <section class="section" id="how-it-works">
-    <h2 class="section-title">End the Manual Placement Search</h2>
-    <p class="section-subtitle">We are replacing door-to-door, transport-fare-heavy placement hunting with a structured, transparent, online process[cite: 1].</p>
+  <!-- THE PROBLEM -->
+  <section class="section" id="problem">
+    <span class="section-eyebrow">Why IT-Connect exists</span>
+    <h2 class="section-title">The Problem With Placement Search Today</h2>
+    <p class="section-subtitle">Industrial Training (IT) — known formally as SIWES, the Student Industrial Work Experience Scheme — is mandatory for most Nigerian university, polytechnic, and college-of-education students, coordinated by the Industrial Training Fund (ITF). Despite being compulsory, finding a placement is left almost entirely to the individual student.</p>
+
+    <div class="problem-intro">
+      Students commonly go <strong>office to office</strong> submitting printed application letters and repeating the trip when there's no reply — a process well documented as a source of frustration in Nigerian SIWES research, and one that costs money in transport and printing before any training even begins.
+    </div>
 
     <div class="grid-3">
-      <div class="card">
+      <div class="card problem-card">
         <div class="card-icon"><i class="fa-solid fa-person-walking-luggage"></i></div>
-        <h3>Zero Transport Costs</h3>
-        <p>Stop spending money going from office to office dropping off printed CVs. Apply to multiple verified placements from your phone[cite: 1].</p>
+        <h3>Manual, Locational Search</h3>
+        <p>Students go from office to office with printed letters, repeating the trip if there's no reply, with no guarantee of a response.</p>
       </div>
-      <div class="card">
-        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h3>Eradicate Fraud</h3>
-        <p>Unregistered "organisations" requesting payment for guaranteed placement exploit students. Our strict verification prevents placement fraud[cite: 1].</p>
+      <div class="card problem-card">
+        <div class="card-icon"><i class="fa-solid fa-coins"></i></div>
+        <h3>Costs Before Training Begins</h3>
+        <p>Transport fares, printing, and lost time are absorbed entirely by students — many of whom have no income yet.</p>
       </div>
-      <div class="card">
+      <div class="card problem-card">
+        <div class="card-icon"><i class="fa-solid fa-circle-question"></i></div>
+        <h3>Information Asymmetry</h3>
+        <p>Students rarely know in advance which organisations are accepting trainees, how many slots exist, or what skills are required — so effort is wasted on dead ends.</p>
+      </div>
+      <div class="card problem-card">
         <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
-        <h3>Perfect Course Matching</h3>
-        <p>Stop settling for placements unrelated to your field of study. Organizations specify exactly what courses they need, ensuring relevant training[cite: 1].</p>
+        <h3>Course-Mismatch Placements</h3>
+        <p>Because finding any placement is hard, students often end up in organisations unrelated to their field of study, undermining the purpose of IT.</p>
+      </div>
+      <div class="card problem-card">
+        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Fraud Risk</h3>
+        <p>Unregistered "organisations" have been reported requesting payment for guaranteed placement, exploiting the pressure students are under.</p>
+      </div>
+      <div class="card problem-card">
+        <div class="card-icon"><i class="fa-solid fa-school-circle-exclamation"></i></div>
+        <h3>No Visibility for Schools</h3>
+        <p>SIWES coordinators struggle to track, verify, and supervise students once they scatter across informally-found placements.</p>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES (3 SIDES) -->
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works" style="background:var(--white); border-radius:32px; max-width:1200px;">
+    <span class="section-eyebrow">The Core Workflow</span>
+    <h2 class="section-title">Capacity-Aware Postings, One-Profile Applications</h2>
+    <p class="section-subtitle">This single change — organisations stating exactly how many slots they have, and students applying once with a saved profile — is what removes the physical, door-to-door search entirely.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Organisation registers and gets verified</h4>
+          <p>Then posts an opening with a defined number of available slots, required course(s) of study, duration, and location.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Student builds one profile</h4>
+          <p>Institution, course, level, location preference, skills, and CV — built once, reused for every application.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Student searches or gets matched</h4>
+          <p>Filters by course, location, and duration — or receives suggested postings based on their profile — then applies in one click. No printing, no physical delivery.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>Organisation reviews applicants</h4>
+          <p>A dashboard lets them filter by course/skills and shortlist or message candidates directly in-platform.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h4>Slots fill and close automatically</h4>
+          <p>Once the organisation accepts students up to its stated capacity, the posting closes — so no one wastes time applying to a full slot.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <h4>Both sides get a confirmation record</h4>
+          <p>The student gets proof of placement for their school; the organisation gets a record of who is arriving and when.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES (THREE SIDES) -->
   <section class="section features-bg" id="students">
-    <h2 class="section-title">A Unified Ecosystem</h2>
-    <p class="section-subtitle">Whether you are seeking training, hiring trainees, or managing a school department, IPMS connects you seamlessly[cite: 1].</p>
+    <span class="section-eyebrow">A Unified Ecosystem</span>
+    <h2 class="section-title">Built for Every Side of Placement</h2>
+    <p class="section-subtitle">Whether you're seeking training, hosting trainees, or supervising a school department, IT-Connect connects you seamlessly.</p>
 
     <div class="grid-3">
       <!-- Students -->
       <div class="card">
         <div class="card-icon"><i class="fa-solid fa-user-graduate"></i></div>
         <h3>For Students</h3>
-        <p>Build a single profile and apply to as many postings as fit your course and location[cite: 1]. Track your application status, message employers directly, and download placement confirmation letters[cite: 1].</p>
+        <p>Build a single profile and apply to as many postings as fit your course and location.</p>
+        <ul>
+          <li>Search &amp; filter by state, industry, course relevance, duration, and stipend</li>
+          <li>Smart matches surfaced first based on your course of study</li>
+          <li>One-click apply with an optional short cover note</li>
+          <li>Application tracker: Applied → Viewed → Shortlisted → Accepted/Rejected</li>
+          <li>In-app messaging once shortlisted — no phone number required upfront</li>
+          <li>Downloadable placement confirmation for your school's SIWES unit</li>
+          <li>Read organisation reviews from past IT students before you apply</li>
+        </ul>
       </div>
-      <!-- Organizations -->
-      <div class="card">
+      <!-- Organisations -->
+      <div class="card" id="organisations">
         <div class="card-icon"><i class="fa-solid fa-building"></i></div>
         <h3>For Organisations</h3>
-        <p>Post available IT/SIWES slots stating role, number of openings, required course of study, and duration[cite: 1]. Review applicants, shortlist candidates, and fill slots efficiently[cite: 1].</p>
+        <p>Post available IT/SIWES slots and fill them with the right students, faster.</p>
+        <ul>
+          <li>Verified registration via CAC number or institutional ID</li>
+          <li>Post role, department, number of openings, required course(s), duration, location &amp; stipend</li>
+          <li>Applicant dashboard with filters and bulk shortlist/message/reject actions</li>
+          <li>Postings auto-close once slots are filled — reopen or extend anytime</li>
+          <li>Direct in-platform messaging with shortlisted candidates</li>
+          <li>Analytics on views, applicants, and conversion per posting</li>
+        </ul>
       </div>
       <!-- Schools -->
       <div class="card">
         <div class="card-icon"><i class="fa-solid fa-school"></i></div>
         <h3>For Coordinators</h3>
-        <p>A lightweight view that lets a department confirm which of its students have secured verified placements, drastically reducing paperwork[cite: 1].</p>
+        <p>A lightweight view for SIWES coordinators — optional in a later phase.</p>
+        <ul>
+          <li>Read-only dashboard of which students have a confirmed placement, and where</li>
+          <li>Downloadable placement lists per session/cohort</li>
+          <li>Supports existing paperwork, including ITF Form 8 tracking</li>
+          <li>Drastically reduces the manual follow-up burden on departments</li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- TRUST AND SAFETY -->
-  <section class="section" id="organizations">
-    <h2 class="section-title">Built on Trust & Safety</h2>
-    <p class="section-subtitle">We verify every organization to ensure a safe environment for students[cite: 1].</p>
-    
+  <section class="section" id="trust">
+    <span class="section-eyebrow">Built on Trust &amp; Safety</span>
+    <h2 class="section-title">Designed Against the Exact Risks Students Already Face</h2>
+    <p class="section-subtitle">Marketplace research is consistent on one point: platforms fail not from missing features, but from users not trusting the other side enough to transact. For IT-Connect, the stakes are concrete.</p>
+
     <div class="trust-banner">
       <i class="fa-solid fa-circle-check"></i>
       <div>
         <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Strict No-Payment Policy</h4>
-        <p style="color: var(--text-muted); font-size: 15px;">We never allow or facilitate any request for payment from a student in exchange for placement[cite: 1]. Organizations must provide CAC registration or institutional IDs to post slots[cite: 1].</p>
+        <p style="color: var(--text-muted); font-size: 15px;">We never allow or facilitate any request for payment from a student in exchange for placement. Organisations must provide CAC registration or an institutional ID before their first posting goes live.</p>
+      </div>
+    </div>
+
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fa-solid fa-id-card"></i>
+        <div>
+          <h4>Verified organisations only</h4>
+          <p>CAC registration, an official company email domain (not a free Gmail/Yahoo address), and a physical address that can be cross-checked.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-comments"></i>
+        <div>
+          <h4>Conversations stay in-platform</h4>
+          <p>Early messaging happens on IT-Connect rather than being pushed straight to WhatsApp or phone, so there's a record if something goes wrong.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-star"></i>
+        <div>
+          <h4>Verified reviews</h4>
+          <p>Students and organisations can review each other after placement — only users with a confirmed placement can leave one.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-flag"></i>
+        <div>
+          <h4>Report &amp; moderate</h4>
+          <p>A simple report/flag button on every posting and message thread, routed straight to an admin moderation queue.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <div>
+          <h4>Transparent dispute handling</h4>
+          <p>Clear rules for what happens if an organisation doesn't honour an accepted slot, or a student ghosts after acceptance.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <div>
+          <h4>Platform-wide oversight</h4>
+          <p>Admins track active postings, fill rate, average time-to-placement, and geographic demand to catch issues early.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" id="roadmap" style="background:var(--white); border-radius:32px; max-width:1200px;">
+    <span class="section-eyebrow">Built in Phases</span>
+    <h2 class="section-title">From Lean MVP to Full Ecosystem</h2>
+    <p class="section-subtitle">Marketplace and staffing-platform practice favours starting narrow and proving demand before adding complexity.</p>
+
+    <div class="roadmap">
+      <div class="roadmap-item current">
+        <span class="roadmap-tag">Phase 1 · MVP</span>
+        <h4>Core placement flow</h4>
+        <p>Student &amp; organisation registration, light verification, slot-based postings, search/filter, one-click apply, and an application-status tracker. No payments involved.</p>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-tag">Phase 2</span>
+        <h4>Trust &amp; engagement</h4>
+        <p>In-platform messaging, the review system, notifications, and an admin moderation dashboard.</p>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-tag">Phase 3</span>
+        <h4>Schools &amp; matching</h4>
+        <p>School/coordinator dashboards, richer analytics for organisations, and smart matching recommendations instead of plain search.</p>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-tag">Phase 4</span>
+        <h4>Sustainability</h4>
+        <p>Optional premium features for organisations, such as featured postings and deeper analytics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <span class="section-eyebrow">Common Questions</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">A few things students and organisations tend to ask before joining.</p>
+
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is IT-Connect free for students? <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes. The core placement-matching function stays free for students. Introducing any pay-to-place mechanic would recreate the exact fraud risk IT-Connect is designed against.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How are organisations verified? <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Every organisation must submit a CAC registration number, use an official company email domain, and provide a physical address that can be cross-checked — all before their first posting goes live.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if an organisation asks me to pay for a placement? <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Report it immediately using the report/flag button on the posting or message thread. IT-Connect has a strict no-payment-for-placement rule enforced by moderation.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can my school track where I'm placed? <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>In a later phase, SIWES coordinators get a read-only dashboard showing confirmed placements for their department, plus downloadable placement lists for existing paperwork like ITF Form 8.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What happens once an organisation's slots are filled? <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>The posting closes automatically once the stated number of slots is reached, so students don't waste time applying to postings that are already full. Organisations can reopen or extend at any time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET THE APP -->
+  <section class="section" id="get-app">
+    <div class="app-cta">
+      <h2>Get IT-Connect on your phone</h2>
+      <p>Most students search for placements from their phones. The IT-Connect app is on its way — join from launch day.</p>
+      <div class="store-badges">
+        <div class="store-badge">
+          <i class="fa-brands fa-google-play"></i>
+          <span><small>Coming soon on</small>Google Play</span>
+        </div>
+        <div class="store-badge">
+          <i class="fa-brands fa-apple"></i>
+          <span><small>Coming soon on</small>App Store</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <img src="PHOTO-2026-07-31-05-01-29.jpg" alt="IPMS Logo Greyscale">
-    <p>&copy; 2026 IPMS (IT-Connect). All rights reserved.</p>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="logo-container">
+          <img src="image.jpg" alt="IPMS Logo">
+          <span class="logo-text">IPMS</span>
+        </div>
+        <p>IT-Connect (IPMS) is a two-sided platform connecting Nigerian students to verified Industrial Training (SIWES/IT) placements — replacing door-to-door search with a structured, transparent, online process.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#problem">The Problem</a></li>
+          <li><a href="#how-it-works">How it Works</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Audience</h5>
+        <ul>
+          <li><a href="#students">For Students</a></li>
+          <li><a href="#organisations">For Organisations</a></li>
+          <li><a href="#trust">Trust &amp; Safety</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#get-app">Get the App</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 IPMS (IT-Connect). All rights reserved.</p>
+      <p>Built for Nigeria's SIWES / ITF Industrial Training framework.</p>
+    </div>
   </footer>
 
-  <!-- MOBILE MENU SCRIPT -->
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('active');
-    }
-  </script>
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
 </body>
 </html>
